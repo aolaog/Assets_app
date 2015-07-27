@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cdhxqh.polling_mobile" >
+    /** permission **/
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name=".Application"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/V2EX.AppTheme.Base" >
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55910f3b67e58e2aef0036ff" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="play" />
+
+        <activity
+            android:name=".ui.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" >
+        </activity>
+        <activity
+            android:name=".ui.UserActivity"
+            android:label="@string/title_activity_user"
+            android:parentActivityName=".ui.MainActivity" >
+        </activity>
+        <activity
+            android:name=".ui.PollListActivity"
+            android:label="@string/title_activity_poll_list"
+            android:parentActivityName=".ui.MainActivity" >
+        </activity>
+        <activity
+            android:name=".ui.DeviceListActivity"
+            android:label="@string/title_activity_device_list"
+            android:parentActivityName=".ui.PollListActivity" >
+        </activity>
+        <activity
+            android:name=".ui.TaskScannActivity"
+            android:label="@string/title_activity_task_scann"
+            android:parentActivityName=".ui.DeviceListActivity" >
+        </activity>
+        <activity
+            android:name=".ui.TaskResultActivity"
+            android:label="@string/title_activity_task_result"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:parentActivityName=".ui.TaskScannActivity" >
+        </activity>
+
+
+        <activity
+            android:name=".ui.Asset_Details_Activity"
+            android:label="@string/title_activity_asset__details_"
+            android:parentActivityName=".ui.TaskScannActivity">
+        </activity>
+
+        <!-- umeng自动更新 -->
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+    </application>
+
+</manifest>

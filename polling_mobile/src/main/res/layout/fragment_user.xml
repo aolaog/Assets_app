@@ -1,0 +1,121 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/dimens_10"
+    android:layout_marginRight="@dimen/dimens_10"
+    tools:context="com.cdhxqh.polling_mobile.ui.fragment.UserFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_username"
+            android:textColor="@color/photo_crop_dim_color"
+            android:textSize="@dimen/dimens_20" />
+
+        <TextView
+            android:id="@+id/user_loginid_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/not_have_data_hint"
+            android:textColor="@color/photo_crop_dim_color"
+            android:textSize="@dimen/dimens_20" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_password"
+            android:textColor="@color/photo_crop_dim_color"
+            android:textSize="@dimen/dimens_20" />
+
+        <TextView
+            android:id="@+id/user_password_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/not_have_data_hint"
+            android:textColor="@color/photo_crop_dim_color"
+            android:textSize="@dimen/dimens_20" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_personid"
+            android:textColor="@color/photo_crop_dim_color"
+            android:textSize="@dimen/dimens_20" />
+
+        <TextView
+            android:id="@+id/user_personid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/not_have_data_hint"
+            android:textColor="@color/photo_crop_dim_color"
+            android:textSize="@dimen/dimens_20" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line"></View>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_displayname"
+            android:textColor="@color/photo_crop_dim_color"
+            android:textSize="@dimen/dimens_20" />
+
+        <TextView
+            android:id="@+id/displayname_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/not_have_data_hint"
+            android:textColor="@color/photo_crop_dim_color"
+            android:textSize="@dimen/dimens_20" />
+
+    </LinearLayout>
+</LinearLayout>

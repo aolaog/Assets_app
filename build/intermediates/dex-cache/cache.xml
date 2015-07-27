@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/apple/Downloads/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-f867e2462e54ccac621caf1d62295be90f773cb6.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.github.mrengineer13/snackbar/1.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="aef8893503b7f526cbc2aa53fd0ddd809e0105fe">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-11bfde4f8b2afecb14e7d12b38ec6be9201a33f9.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-f2cf785397bf9dfe0918ad396aea59f93fdb00c2.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c2071dcaf7a008c3b01a6381a33be55396bab09">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-9e92b8843956252aca1d6cfbe14e6f5eadcb0cb7.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-d420c62c6d5fc44710ee117d9b8568678438e04d.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-8f3b4d3fc275fe126c58b7f196d809fb95e4cca8.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-c3e08e5a0ec2f7e6cee505e356048c29b0eead29.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0dcc55e70f7ebf7238fe2ec53f662eb378ab2668">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-be8bab5bf2ea01acc9a31b03dacfe8dc34806dae.jar" />
+    </item>
+    <item
+        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/library-2.4.0-4ec80fb36b949e142cc7340897cb407096b811c8.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-d420c62c6d5fc44710ee117d9b8568678438e04d.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/SenterOpenApi_1.1.2.27.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9718322d74c51cf222bf8658e816005ea5cad80f">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/SenterOpenApi_1.1.2.27-95fc6ea316629e9c6e9b4df6bef8c2e24290c302.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/json-lib-2.4-jdk15.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="136743e0d12df4e785e62b48618cee169b2ae546">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/json-lib-2.4-jdk15-6390dcfc2f79ea9fcbe537594216215fe2cca3e1.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/umeng-update-v2.6.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7bfeea30c4995f90a4374ce4177772a4579f2797">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/umeng-update-v2.6.0.1-561e3c0710dbf415b71b6b2e361cded5a0aee695.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-1b4d9b469b0ff4ca476ff173a417d26123fd9551.jar" />
+    </item>
+    <item
+        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-6a2b23df614eb361d4c8f915270c0e1b11b3e0ee.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-f2cf785397bf9dfe0918ad396aea59f93fdb00c2.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-a0b56931b6204892b061b0e615aee01b07ad1313.jar" />
+    </item>
+    <item
+        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.3/a85588bec3e2c4584d593d3f15df1677321bca72/universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-afec337a0fe8053e5291dc1d8d2ca0ca4439674f.jar" />
+    </item>
+    <item
+        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.3/a85588bec3e2c4584d593d3f15df1677321bca72/universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-afec337a0fe8053e5291dc1d8d2ca0ca4439674f.jar" />
+    </item>
+    <item
+        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.umeng.analytics/analytics/5.5.3/5d503ec571e2e98d972209afa203f94d11882c15/analytics-5.5.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5d503ec571e2e98d972209afa203f94d11882c15">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/analytics-5.5.3-84a87b4e87cbdd327f8fc272848e178441119af3.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-2523a08065ac8ef09d6bae1145e9e57b7f694a7d.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8c6ebb7d087d1a30bf84356bd2aecf85309fc024">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-0f53a844fe8a7fcacb68d0f862740a2ea7c95d00.jar" />
+    </item>
+
+</items>

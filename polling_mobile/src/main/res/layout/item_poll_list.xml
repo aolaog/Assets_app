@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/dimens_10"
+    android:paddingTop="@dimen/dimens_10">
+
+    <TextView
+        android:id="@+id/item_polllist_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimens_10"
+        android:ellipsize="end"
+        android:maxEms="5"
+        android:singleLine="true"
+        android:text="2层3区UPS设备检查" />
+
+    <TextView
+        android:id="@+id/item_polllist_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="9:00-10:00" />
+
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+       android:id="@+id/card_view_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:foreground="?android:selectableItemBackground"
+        android:orientation="vertical"
+        card_view:cardBackgroundColor="@color/window_background"
+        card_view:cardCornerRadius="5dp">
+
+        <TextView
+            android:id="@+id/item_polllist_status"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text="下载"
+            android:textColor="@color/photo_crop_dim_color" />
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

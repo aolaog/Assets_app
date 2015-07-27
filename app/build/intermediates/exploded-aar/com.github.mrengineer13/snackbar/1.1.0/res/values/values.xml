@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <!-- From: file:/C:/Users/Jon/Dropbox/Android%20And%20Java/Snackbar/snackbar/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="sb__button_text_color">#FB6541</color>
+    <color name="sb__dim_white">#20FFFFFF</color>
+    <color name="sb__snack_alert_bkgnd">#ffff4444</color>
+    <color name="sb__snack_bkgnd">#323232</color>
+    <color name="sb__transparent">#00000000</color>
+    <!-- From: file:/C:/Users/Jon/Dropbox/Android%20And%20Java/Snackbar/snackbar/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="horizontal_margin">24dp</dimen>
+    <dimen name="vertical_margin_bottom">16dp</dimen>
+    <dimen name="vertical_margin_top">16dp</dimen>
+    <!-- From: file:/C:/Users/Jon/Dropbox/Android%20And%20Java/Snackbar/snackbar/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="snackButton" type="id"/>
+    <item name="snackContainer" type="id"/>
+    <item name="snackMessage" type="id"/>
+    <!-- From: file:/C:/Users/Jon/Dropbox/Android%20And%20Java/Snackbar/snackbar/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="SnackBar.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+        <item name="android:paddingTop">@dimen/vertical_margin_top</item>
+        <item name="android:paddingBottom">@dimen/vertical_margin_bottom</item>
+        <item name="android:textColor">@color/sb__default_button_text_color</item>
+        <item name="android:editable">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps" ns1:ignore="NewApi">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <style name="SnackBar.Container">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+    </style>
+    <style name="SnackBar.Message">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">@dimen/horizontal_margin</item>
+        <item name="android:layout_marginStart" ns1:ignore="NewApi">@dimen/horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/horizontal_margin</item>
+        <item name="android:layout_marginEnd" ns1:ignore="NewApi">@dimen/horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/vertical_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/vertical_margin_bottom</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+    <style name="SnackBar.SnackBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">80dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/sb__snack_bkgnd</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+</resources>

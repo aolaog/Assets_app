@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.cdhxqh.polling_mobile"
+        minSdkVersion 16
+        targetSdkVersion 21
+        versionCode 2
+        versionName "1.0.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v13:21.+'
+    compile 'com.android.support:appcompat-v7:21.0.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    compile 'com.android.support:cardview-v7:21.0.3'
+    compile 'com.android.support:recyclerview-v7:21.0.3'
+    compile 'de.hdodenhof:circleimageview:1.3.0'
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.github.mrengineer13:snackbar:1.1.0'
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    compile 'com.loopj.android:android-async-http:1.4.6'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.melnykov:floatingactionbutton:1.3.0'
+    compile files('libs/libs/umeng-update-v2.6.0.1.jar')
+    compile files('libs/libs/SenterOpenApi_1.1.2.27.jar')
+    compile files('libs/libs/json-lib-2.4-jdk15.jar')
+}

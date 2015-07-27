@@ -1,0 +1,74 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cdhxqh.polling_mobile.ui.fragment.PollListFragment">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:foreground="?android:selectableItemBackground"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/relativelayout_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/poll_title_bj"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimens_20"
+                    android:text="@string/task_text"
+                    android:textColor="@color/photo_crop_highlight_color"
+                    android:textSize="@dimen/dimens_18" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:text="@string/poll_time"
+                    android:textColor="@color/photo_crop_highlight_color"
+                    android:textSize="@dimen/dimens_18" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/dimens_20"
+                    android:text="@string/poll_status"
+                    android:textColor="@color/photo_crop_highlight_color"
+                    android:textSize="@dimen/dimens_18" />
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/relativelayout_id"
+
+                android:layout_marginLeft="8dp"></android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+</FrameLayout>

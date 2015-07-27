@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/dimens_10"
+    android:paddingTop="@dimen/dimens_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimens_10"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rfid_num" />
+
+            <TextView
+                android:id="@+id/rfid_num_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimens_10"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/not_have_data_hint" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_5"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/asset_details_id"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:background="@drawable/btn_default_bj"
+                android:text="@string/asset_details_text"
+                android:textSize="14dp"
+                android:textColor="@color/window_background" />
+
+            <Button
+                android:id="@+id/asset_reply_id"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/dimens_10"
+                android:background="@drawable/btn_default_bj"
+                android:text="@string/asset_reply_text"
+                android:textSize="14dp"
+                android:textColor="@color/window_background" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
