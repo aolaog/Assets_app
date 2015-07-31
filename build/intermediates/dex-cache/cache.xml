@@ -2,11 +2,207 @@
 <items version="2" >
 
     <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/pinyin4j-2.5.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ae353005f973da1cd8545b54354504c2503f6865">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/pinyin4j-2.5.0-9f8a3317667972c72160e814d27f1087abc0d75c.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-937645ead2432c53b0eff2a0ce5fd3a296d4e6f9.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-3aaf2a0561be11bd4facd3e960bbb46a4e7698c2.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c2071dcaf7a008c3b01a6381a33be55396bab09">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-9e92b8843956252aca1d6cfbe14e6f5eadcb0cb7.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-5111713e953dfd5f7351353e40032982216793e3.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_QQZone_3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d57cae1dcd1eeeec2cd8197fcdd7a0316216481e">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_QQZone_3-2ea905c6148653855cd1ffcb2d40e6455b5f5260.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_tencentWB_3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5a01801b9f9f7236ef08979eb31fd678a07c3742">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_tencentWB_3-851f74f80216994b5620a6a27a417a42f56e41ea.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/android-viewbadger.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f1303b50d535716ca7601c5014357b8435658313">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/android-viewbadger-18a48083317c88c987f526ecf6701a870c122ea5.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0dcc55e70f7ebf7238fe2ec53f662eb378ab2668">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-be8bab5bf2ea01acc9a31b03dacfe8dc34806dae.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/umeng-update-v2.6.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7bfeea30c4995f90a4374ce4177772a4579f2797">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/umeng-update-v2.6.0.1-5c3b9824334b52558e781dea6db30ef6f2c63b50.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/json-lib-2.4-jdk15.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="136743e0d12df4e785e62b48618cee169b2ae546">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/json-lib-2.4-jdk15-6390dcfc2f79ea9fcbe537594216215fe2cca3e1.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/SenterOpenApi_1.1.2.27.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9718322d74c51cf222bf8658e816005ea5cad80f">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/SenterOpenApi_1.1.2.27-95fc6ea316629e9c6e9b4df6bef8c2e24290c302.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/umeng-update-v2.6.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7bfeea30c4995f90a4374ce4177772a4579f2797">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/umeng-update-v2.6.0.1-561e3c0710dbf415b71b6b2e361cded5a0aee695.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_QQZone_1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c184c69f43b1fe46390f7123717c65bd844bccb6">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_QQZone_1-042394f8b4007d62855c151b4f46a83c2a16f451.jar" />
+    </item>
+    <item
+        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-6a2b23df614eb361d4c8f915270c0e1b11b3e0ee.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_tencentWB_1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="328c5351cae13f2ab29450d22b6c02d0ac88a855">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_tencentWB_1-62c481d2d57d4108a5f2aec45ba1c76d2d551fde.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_Sina.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fd07c18d274be387922d55964e04cb418133c80f">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_Sina-4754746cb1065b4bfce713f7915e603339932fbd.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-a0b56931b6204892b061b0e615aee01b07ad1313.jar" />
+    </item>
+    <item
+        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.3/a85588bec3e2c4584d593d3f15df1677321bca72/universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-afec337a0fe8053e5291dc1d8d2ca0ca4439674f.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c2071dcaf7a008c3b01a6381a33be55396bab09">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-aba1a091642164c0a99b1cc5b450db2b01f185a8.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-c3a279c9b471bbeb5ba33afd9aedfaa7bd619bac.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-2523a08065ac8ef09d6bae1145e9e57b7f694a7d.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8c6ebb7d087d1a30bf84356bd2aecf85309fc024">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-0f53a844fe8a7fcacb68d0f862740a2ea7c95d00.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_tencentWB_2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6f744074067eb201171c9c8ff1ca45ed821a76a8">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_tencentWB_2-d1e617c6bb53b75a1f8f6b9e524b93b09c33f3b0.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-0effc92689f87eb0636dcc001f6a912afb486ad6.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0dcc55e70f7ebf7238fe2ec53f662eb378ab2668">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-0587aee5165768724921c86d9b60651e30d74af5.jar" />
+    </item>
+    <item
         jar="/Users/apple/Downloads/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
         <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/support-annotations-22.1.1-f867e2462e54ccac621caf1d62295be90f773cb6.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_WeiXin_1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d7c2f29c05b35e8c8713be2b81c41cf18f98b64a">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_WeiXin_1-78f4d85ebf57405ad37ea6fffbecb7df1a41a7b9.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/httpmime-4.1.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e70d34d98f7f7f3b2b92105b9f2fe2a7a7184461">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/httpmime-4.1.3-da76d660e52e69b21ebd4a927912c7139274d093.jar" />
     </item>
     <item
         jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.github.mrengineer13/snackbar/1.1.0/classes.jar"
@@ -16,18 +212,11 @@
         <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-11bfde4f8b2afecb14e7d12b38ec6be9201a33f9.jar" />
     </item>
     <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-f2cf785397bf9dfe0918ad396aea59f93fdb00c2.jar" />
-    </item>
-    <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.3/classes.jar"
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.github.mrengineer13/snackbar/1.1.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="2c2071dcaf7a008c3b01a6381a33be55396bab09">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-9e92b8843956252aca1d6cfbe14e6f5eadcb0cb7.jar" />
+        sha1="aef8893503b7f526cbc2aa53fd0ddd809e0105fe">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-0fbb02b79c4e3f8b65fc3398acae0b98f0760cde.jar" />
     </item>
     <item
         jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
@@ -51,46 +240,39 @@
         <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-c3e08e5a0ec2f7e6cee505e356048c29b0eead29.jar" />
     </item>
     <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v13/21.0.3/libs/internal_impl-21.0.3.jar"
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/jsoup-1.8.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="0dcc55e70f7ebf7238fe2ec53f662eb378ab2668">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-be8bab5bf2ea01acc9a31b03dacfe8dc34806dae.jar" />
+        sha1="3d57e95c0f150b885ccdbda7a12bef353fd31d02">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/jsoup-1.8.1-2127347a34db131fbe13fba29557cb430aa29438.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.3.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8c6ebb7d087d1a30bf84356bd2aecf85309fc024">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-8f64041633c8194f656366a83739fa47d966dbea.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/umeng_social_sdk.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="857c78387c5b911f5dc9b20b307f0edfd16befed">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/umeng_social_sdk-01e2b146e6cbc65b310e7a7502bc32503e2205c7.jar" />
     </item>
     <item
         jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/library-2.4.0-4ec80fb36b949e142cc7340897cb407096b811c8.jar" />
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/library-2.4.0-4ec80fb36b949e142cc7340897cb407096b811c8.jar" />
     </item>
     <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-d420c62c6d5fc44710ee117d9b8568678438e04d.jar" />
-    </item>
-    <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/SenterOpenApi_1.1.2.27.jar"
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_QQZone_2.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="9718322d74c51cf222bf8658e816005ea5cad80f">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/SenterOpenApi_1.1.2.27-95fc6ea316629e9c6e9b4df6bef8c2e24290c302.jar" />
-    </item>
-    <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/json-lib-2.4-jdk15.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="136743e0d12df4e785e62b48618cee169b2ae546">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/json-lib-2.4-jdk15-6390dcfc2f79ea9fcbe537594216215fe2cca3e1.jar" />
-    </item>
-    <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/libs/libs/umeng-update-v2.6.0.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7bfeea30c4995f90a4374ce4177772a4579f2797">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/umeng-update-v2.6.0.1-561e3c0710dbf415b71b6b2e361cded5a0aee695.jar" />
+        sha1="4a69b33758dcba3ef519cbd4b6c8af5f41603c4f">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_QQZone_2-e970a09ff35268fe6ba00c57d5b74b1348f6d168.jar" />
     </item>
     <item
         jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/classes.jar"
@@ -100,11 +282,11 @@
         <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-1b4d9b469b0ff4ca476ff173a417d26123fd9551.jar" />
     </item>
     <item
-        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.6/a845a88238be0b5be9d238652c1bc0605ef91f52/android-async-http-1.4.6.jar"
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="a845a88238be0b5be9d238652c1bc0605ef91f52">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-6a2b23df614eb361d4c8f915270c0e1b11b3e0ee.jar" />
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-cd44b9530b3c8910d55a5b7fded874b9bc9191b6.jar" />
     </item>
     <item
         jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/classes.jar"
@@ -114,46 +296,32 @@
         <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-f2cf785397bf9dfe0918ad396aea59f93fdb00c2.jar" />
     </item>
     <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-a0b56931b6204892b061b0e615aee01b07ad1313.jar" />
-    </item>
-    <item
-        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.3/a85588bec3e2c4584d593d3f15df1677321bca72/universal-image-loader-1.9.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-afec337a0fe8053e5291dc1d8d2ca0ca4439674f.jar" />
-    </item>
-    <item
-        jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.3/a85588bec3e2c4584d593d3f15df1677321bca72/universal-image-loader-1.9.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-afec337a0fe8053e5291dc1d8d2ca0ca4439674f.jar" />
-    </item>
-    <item
         jar="/Users/apple/.gradle/caches/modules-2/files-2.1/com.umeng.analytics/analytics/5.5.3/5d503ec571e2e98d972209afa203f94d11882c15/analytics-5.5.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="5d503ec571e2e98d972209afa203f94d11882c15">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/analytics-5.5.3-84a87b4e87cbdd327f8fc272848e178441119af3.jar" />
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/analytics-5.5.3-84a87b4e87cbdd327f8fc272848e178441119af3.jar" />
     </item>
     <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/libs/internal_impl-22.1.1.jar"
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/internal_impl-22.1.1-2523a08065ac8ef09d6bae1145e9e57b7f694a7d.jar" />
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/classes-cabe4647e60c4caa14bddb12e901918ec59ea7dd.jar" />
     </item>
     <item
-        jar="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.3.0/classes.jar"
+        jar="/Users/apple/Documents/androidStudio/v2ex-android/app/libs/SocialSDK_WeiXin_2.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="8c6ebb7d087d1a30bf84356bd2aecf85309fc024">
-        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/polling_mobile/build/intermediates/pre-dexed/debug/classes-0f53a844fe8a7fcacb68d0f862740a2ea7c95d00.jar" />
+        sha1="ec0faf74d92d4882d9be51b1b9ebb5ebc83fbea7">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/SocialSDK_WeiXin_2-3b2acdb7104988ddf41b9f672a6c8b8ba01da50e.jar" />
+    </item>
+    <item
+        jar="/Users/apple/Downloads/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/apple/Documents/androidStudio/v2ex-android/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-eb2f179c3edf0a387da6adcd304ec459c2b9db03.jar" />
     </item>
 
 </items>

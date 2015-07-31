@@ -104,7 +104,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void onSuccess(Integer data) {
 
-
+                        mProgressDialog.setTitle("登陆成功");
 //                        MessageUtils.showMiddleToast(LoginActivity.this, "登陆成功");
 //                        mProgressDialog.dismiss();
 
@@ -114,13 +114,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             saveUserNameAndPassWord();
                         }
 
+//                        mProgressDialog.dismiss();
+//                        startIntent();
+
                         getProfile();
 
                     }
 
                     @Override
                     public void onSuccess(Integer data, int totalPages, int currentPage) {
-                        Log.i(TAG, "22222");
                     }
 
                     @Override

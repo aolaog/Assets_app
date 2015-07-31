@@ -179,10 +179,9 @@ public class TaskScannFragment extends BaseFragment {
                     String epcnew = epc.replaceAll(" ", "");
 
                     Log.i(TAG, "epc＝" + epcnew);
-                    String testepc="e20030981818006113508dd4";
                     if (!epcnew.equals("")) {
                         Application.stop();
-                        List<Asset_three_class> list=getAllDevices(testepc);
+                        List<Asset_three_class> list=getAllDevices(epcnew);
                         mProgressDialog.dismiss();
                         Message mess=new Message();
                         Bundle b=new Bundle();

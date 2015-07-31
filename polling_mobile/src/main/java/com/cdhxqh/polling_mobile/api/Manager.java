@@ -40,8 +40,10 @@ public class Manager {
     private static final PollDataSource mDataSource = Application.getDataSource();
 
     private static AsyncHttpClient sClient = null;
-
+    /**旧**/
     private static final String HTTP_API_URL = "http://123.56.84.244:9090/hxqh/tdapi/";
+    /**新**/
+//    private static final String HTTP_API_URL = "http://192.168.169.103:8080/hxqh/tdapi/";
 
     /**
      * 登陆接口*
@@ -114,7 +116,6 @@ public class Manager {
     public static void getAsset_Three_class(Context ctx, final String className3, final String access_token, boolean refresh,
                                             final HttpRequestHandler<ArrayList<String>> handler) {
         String urlStr = ASSET_THREE_CLASS_URL + className3 + "/list" + "?access_token=" + access_token;
-        Log.i(TAG,"three url="+urlStr);
 
         getAssetThreeClass(ctx, urlStr, refresh, handler);
 
@@ -125,7 +126,6 @@ public class Manager {
      */
     public static void getLoginout(Context ctx, final String access_token, boolean refresh,
                                    final HttpRequestHandler<ArrayList<String>> handler) {
-        Log.i(TAG, " loginout ccess_token=" + access_token);
         Loginout(ctx, LOGOUT_URL + "?access_token=" + access_token, refresh, handler);
 
     }
@@ -148,7 +148,6 @@ public class Manager {
 
             @Override
             public void onSuccess(String data) {
-                Log.i(TAG, "data=" + data);
                 //解析返回的Json数据
                 boolean code = JsonUtils.parsingAuthStr(cxt, data);
 
@@ -171,7 +170,6 @@ public class Manager {
 
     private static void requestOnceWithURLString(final Context cxt, final String username, final String password,
                                                  final HttpRequestHandler<String> handler) {
-        Log.i(TAG,"SIGN_IN_URL="+SIGN_IN_URL);
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.put("username", username);
@@ -181,13 +179,11 @@ public class Manager {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Log.i(TAG, "FstatusCode=" + statusCode);
                 SafeHandler.onFailure(handler, ErrorType.errorMessage(cxt, ErrorType.ErrorLoginFailure));
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                Log.i(TAG, "SstatusCode=" + statusCode);
                 if (statusCode == 200) {
                     SafeHandler.onSuccess(handler, responseString);
                 }
@@ -207,7 +203,6 @@ public class Manager {
     public static void getAssetClass(final Context ctx, String urlString, final String access_token,boolean refresh,
                                      final HttpRequestHandler<ArrayList<String>> handler) {
 
-        Log.i(TAG,"assetURL="+urlString);
         requestAssetURLString(ctx, urlString, new HttpRequestHandler<String>() {
             @Override
             public void onSuccess(String data, int totalPages, int currentPage) {
@@ -216,9 +211,8 @@ public class Manager {
             @Override
             public void onSuccess(String data) {
                 List<Asset_class> asset_classes = JsonUtils.parsingAssetClass(ctx, data);
-//                for (int i=0;i<asset_classes.size();i++) {
+                for (int i=0;i<asset_classes.size();i++) {
                     String asset_name=asset_classes.get(0).className;
-                    Log.i(TAG,"asset_name="+asset_name);
                     //根据资产分类获取三级资产
                     Manager.getAsset_Child_class(ctx,asset_name,access_token,true,new HttpRequestHandler<ArrayList<String>>() {
                         @Override
@@ -228,18 +222,17 @@ public class Manager {
 
                         @Override
                         public void onSuccess(ArrayList<String> data, int totalPages, int currentPage) {
-                            Log.i(TAG,"child***2");
                         }
 
                         @Override
                         public void onFailure(String error) {
-                            Log.i(TAG,"child***3");
 
                         }
                     } );
 
+
+                }
                 SafeHandler.onSuccess(handler,null);
-//                }
             }
 
 
@@ -264,25 +257,21 @@ public class Manager {
         requestAssetURLString(ctx, urlString, new HttpRequestHandler<String>() {
             @Override
             public void onSuccess(String data, int totalPages, int currentPage) {
-                Log.i(TAG,"child***4");
             }
 
             @Override
             public void onSuccess(String data) {
-                Log.i(TAG,"child***5"+data);
                 List<Asset_two_class> asset_two_classes=JsonUtils.parsingAssetTwoClass(ctx,data);
-//                for(int i=0;i<asset_two_classes.size();i++){
-                    String object_name=asset_two_classes.get(0).object_name;
-                    String object_name_ch=asset_two_classes.get(0).object_name_ch;
+                for(int i=0;i<asset_two_classes.size();i++){
+                    String object_name=asset_two_classes.get(i).object_name;
+                    String object_name_ch=asset_two_classes.get(i).object_name_ch;
                     Manager.getAsset_Three_class(ctx,object_name,access_token,true,new HttpRequestHandler<ArrayList<String>>() {
                         @Override
                         public void onSuccess(ArrayList<String> data) {
-                            Log.i(TAG,"three***="+data);
                         }
 
                         @Override
                         public void onSuccess(ArrayList<String> data, int totalPages, int currentPage) {
-                            Log.i(TAG,"three***1="+data);
                         }
 
                         @Override
@@ -290,9 +279,8 @@ public class Manager {
                             Log.i(TAG,"error"+error);
                         }
                     });
-                    Log.i(TAG,"object_name="+object_name+",object_name_ch="+object_name_ch);
 
-//                }
+                }
             }
 
 
@@ -315,12 +303,10 @@ public class Manager {
         requestAssetURLString(ctx, urlString, new HttpRequestHandler<String>() {
             @Override
             public void onSuccess(String data, int totalPages, int currentPage) {
-                Log.i(TAG,"child***6");
             }
 
             @Override
             public void onSuccess(String data) {
-                Log.i(TAG1, "child***7" + data);
                 List<Asset_three_class> list=JsonUtils.parsingAssetthreeClass(ctx,data);
                 for (int i=0;i<list.size();i++){
                     String  assetNo=list.get(i).assetNo;
@@ -341,18 +327,15 @@ public class Manager {
 
     private static void requestAssetURLString(final Context cxt, final String urlstring,
                                               final HttpRequestHandler<String> handler) {
-        Log.i(TAG, "ASSET urlstring= " + urlstring);
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(cxt, urlstring, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Log.i(TAG, "statusCode=" + statusCode);
                 SafeHandler.onFailure(handler, responseString);
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                Log.i(TAG, "statusCode=" + statusCode + ",responseString=" + responseString);
                 if (statusCode == 200) {
                     SafeHandler.onSuccess(handler, responseString);
                 }
@@ -371,13 +354,11 @@ public class Manager {
      */
     public static void getInspect_tickets(Context ctx, String urlString, boolean refresh,
                                           final HttpRequestHandler<ArrayList<Ins_task_ticket>> handler) {
-        Log.i(TAG, "urlString=" + urlString);
 
         Uri uri = Uri.parse(urlString);
         String path = uri.getLastPathSegment();
         String param = uri.getEncodedQuery();
         String key = path;
-        Log.i(TAG, "key=" + key);
         if (param != null)
             key += param;
 
@@ -414,13 +395,11 @@ public class Manager {
                                                final HttpRequestHandler<ArrayList<Ins_task_device>> handler) {
 
         String urlString = INSPECT_DEVICE_URL + "/" + ticketID + "?access_token=" + access_token;
-        Log.i(TAG, "urlString=" + urlString);
 
         Uri uri = Uri.parse(urlString);
         String path = uri.getLastPathSegment();
         String param = uri.getEncodedQuery();
         String key = path + ticketID;
-        Log.i(TAG, "key=" + key);
         if (param != null)
             key += param;
 
@@ -447,20 +426,17 @@ public class Manager {
             @Override
             public void onSuccess(String data, int totalPages, int currentPage) {
 
-                Log.i(TAG, "1111data=" + data);
 
             }
 
             @Override
             public void onSuccess(String data) {
-                Log.i(TAG, "222222=" + data);
                 SafeHandler.onSuccess(handler, null);
             }
 
 
             @Override
             public void onFailure(String error) {
-                Log.i(TAG, "33333");
 
                 SafeHandler.onFailure(handler, error);
             }
@@ -475,7 +451,6 @@ public class Manager {
     private static void requestTaskWithURLString(final Context cxt, final String ticket, final JSONArray insDeviceRecords, final String access_token,
                                                  final HttpRequestHandler<String> handler) {
         String URL = UPLOAD_DEVICE_URL + "?access_token=" + access_token;
-        Log.i(TAG, "url=" + URL);
         AsyncHttpClient client = new AsyncHttpClient();
 
 
@@ -493,7 +468,6 @@ public class Manager {
         }
 
         String s = jsonArray.toString().replaceAll("\\\\", "");
-        Log.i(TAG, "JSON>>>>>>>>" + s);
         try {
             StringEntity entity = new StringEntity(s, "UTF-8");
             entity.setContentEncoding("UTF-8");
@@ -502,13 +476,11 @@ public class Manager {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                    Log.i(TAG, "FstatusCode=" + statusCode);
                     SafeHandler.onFailure(handler, ErrorType.errorMessage(cxt, ErrorType.ErrorLoginFailure));
                 }
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                    Log.i(TAG, "SstatusCode=" + statusCode);
                     if (statusCode == 200) {
                         SafeHandler.onSuccess(handler, responseString);
                     }
@@ -536,12 +508,10 @@ public class Manager {
         requestLoginoutURLString(ctx, urlString, new HttpRequestHandler<String>() {
             @Override
             public void onSuccess(String data, int totalPages, int currentPage) {
-                Log.i(TAG, "1data=" + data);
             }
 
             @Override
             public void onSuccess(String data) {
-                Log.i(TAG, "2data=" + data);
                 boolean isSuccess = false;
                 String message = null;
                 try {
@@ -556,7 +526,6 @@ public class Manager {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Log.i(TAG, " 登出 JsonExceotion=" + e);
                 }
 
             }
@@ -572,18 +541,15 @@ public class Manager {
 
     private static void requestLoginoutURLString(final Context cxt, final String urlstring,
                                                  final HttpRequestHandler<String> handler) {
-        Log.i(TAG, "loginout urlstring= " + urlstring);
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(cxt, urlstring, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                Log.i(TAG, "statusCode=" + statusCode);
                 SafeHandler.onFailure(handler, responseString);
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                Log.i(TAG, "statusCode=" + statusCode + ",responseString=" + responseString);
                 if (statusCode == 200) {
                     SafeHandler.onSuccess(handler, responseString);
                 }
