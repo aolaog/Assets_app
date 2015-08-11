@@ -12,6 +12,9 @@ import com.cdhxqh.polling_mobile.model.Asset_two_class;
 import com.cdhxqh.polling_mobile.model.Ins_task_device;
 import com.cdhxqh.polling_mobile.model.Ins_task_ticket;
 import com.cdhxqh.polling_mobile.model.PersistenceHelper;
+import com.cdhxqh.polling_mobile.ui.BaseActivity;
+import com.cdhxqh.polling_mobile.utils.AccountUtils;
+import com.cdhxqh.polling_mobile.utils.FileUtils;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.PersistentCookieStore;
 import com.loopj.android.http.RequestParams;
@@ -23,6 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,53 +37,60 @@ import java.util.List;
 
 public class Manager {
     private static final String TAG = "PollManager";
-    private static final String TAG1 = "PollManager1";
 
     private static Application mApp = Application.getInstance();
 
     private static final PollDataSource mDataSource = Application.getDataSource();
 
     private static AsyncHttpClient sClient = null;
-    /**旧**/
-    private static final String HTTP_API_URL = "http://123.56.84.244:9090/hxqh/tdapi/";
+
+
+    /**
+     * 旧*
+     */
+
+
+    public static final String HTTP_API_URL = "http://123.56.84.244:9090/hxqh/tdapi/";
     /**新**/
 //    private static final String HTTP_API_URL = "http://192.168.169.103:8080/hxqh/tdapi/";
 
-    /**
-     * 登陆接口*
-     */
-    private static final String SIGN_IN_URL = HTTP_API_URL + "user/login";
-    /**
-     * 根据登陆账号获取巡检任务单*
-     */
-    private static final String INSPECT_TICKET_URL = HTTP_API_URL + "inspect/inspect_ticket/today/list";
-    /**
-     * 获取单个巡检任务单*
-     */
-    private static final String INSPECT_DEVICE_URL = HTTP_API_URL + "inspect/inspect_ticket";
-    /**
-     * 上传巡检任务的结果*
-     */
-    private static final String UPLOAD_DEVICE_URL = HTTP_API_URL + "inspect/inspect_ticket/tickets";
-    /**
-     * 列出所有资产二级分类*
-     */
-    private static final String ASSET_ClASS_URL = HTTP_API_URL + "asset/class2/list";
-    /**
-     * 列出某二级分类下的所有资产三级分类*
-     */
-    private static final String ASSET_CHILD_CLASS_URL = HTTP_API_URL + "asset/class2/";
-    /**列出某资产三级分类下所有设备**/
-    private static final String ASSET_THREE_CLASS_URL = HTTP_API_URL + "asset/class3/";
-
-    /**
-     * 图片上传的URL*
-     */
-    public static final String IMAGE_URL = HTTP_API_URL + "inspect/inspect_ticket/images";
-    /**
-     * 登出管理*
-     */
-    private static final String LOGOUT_URL = HTTP_API_URL + "user/logout";
+//    /**
+//     * 登陆接口*
+//     */
+//    private static final String SIGN_IN_URL = HTTP_API_URL + "user/login";
+//    /**
+//     * 根据登陆账号获取巡检任务单*
+//     */
+//    private static final String INSPECT_TICKET_URL = HTTP_API_URL + "inspect/inspect_ticket/today/list";
+//    /**
+//     * 获取单个巡检任务单*
+//     */
+//    private static final String INSPECT_DEVICE_URL = HTTP_API_URL + "inspect/inspect_ticket";
+//    /**
+//     * 上传巡检任务的结果*
+//     */
+//    private static final String UPLOAD_DEVICE_URL = HTTP_API_URL + "inspect/inspect_ticket/tickets";
+//    /**
+//     * 列出所有资产二级分类*
+//     */
+//    private static final String ASSET_ClASS_URL = HTTP_API_URL + "asset/class2/list";
+//    /**
+//     * 列出某二级分类下的所有资产三级分类*
+//     */
+//    private static final String ASSET_CHILD_CLASS_URL = HTTP_API_URL + "asset/class2/";
+//    /**
+//     * 列出某资产三级分类下所有设备*
+//     */
+//    private static final String ASSET_THREE_CLASS_URL = HTTP_API_URL + "asset/class3/";
+//
+//    /**
+//     * 图片上传的URL*
+//     */
+//    public static final String IMAGE_URL = HTTP_API_URL + "inspect/inspect_ticket/images";
+//    /**
+//     * 登出管理*
+//     */
+//    private static final String LOGOUT_URL = HTTP_API_URL + "user/logout";
 
     /**
      * 下载用户登陆的巡检任务单列表*
@@ -88,6 +99,8 @@ public class Manager {
     //根据access_token获取巡检任务单**/
     public static void getInspect_ticket(Context ctx, final String access_token, boolean refresh,
                                          final HttpRequestHandler<ArrayList<Ins_task_ticket>> handler) {
+        String INSPECT_TICKET_URL = AccountUtils.getIp(ctx) + "inspect/inspect_ticket/today/list";
+
         getInspect_tickets(ctx, INSPECT_TICKET_URL + "?access_token=" + access_token, refresh, handler);
     }
 
@@ -96,28 +109,53 @@ public class Manager {
      * 获取所以资产分类*
      */
     public static void getAsset_class(Context ctx, final String access_token, boolean refresh,
-                                      final HttpRequestHandler<ArrayList<String>> handler) {
-        getAssetClass(ctx, ASSET_ClASS_URL + "?access_token=" + access_token, access_token,refresh, handler);
+                                      final HttpRequestHandler<ArrayList<Asset_class>> handler) {
+
+        String ASSET_ClASS_URL = AccountUtils.getIp(ctx) + "asset/class2/list";
+        getAssetClass(ctx, ASSET_ClASS_URL + "?access_token=" + access_token, access_token, refresh, handler);
 
     }
 
     /**
-     * 列出某二级分类下的所有资产三级分类*
+     * 列出某二级分类下的所有资产二级分类*
      */
-    public static void getAsset_Child_class(Context ctx, final String className, final String access_token, boolean refresh,
-                                            final HttpRequestHandler<ArrayList<String>> handler) {
-        String urlStr = ASSET_CHILD_CLASS_URL + className + "/list" + "?access_token=" + access_token;
-        getAssetChildClass(ctx, urlStr,access_token, refresh, handler);
+    public static void getAsset_Child_class(Context ctx, final ArrayList<Asset_class> asset_class, final String access_token, boolean refresh,
+                                            final HttpRequestHandler<Boolean> handler) {
+        String ASSET_CHILD_CLASS_URL = AccountUtils.getIp(ctx) + "asset/class2/";
+        if (asset_class != null || asset_class.size() != 0) {
+            for (int i = 0; i < asset_class.size(); i++) {
+                String urlStr = ASSET_CHILD_CLASS_URL + asset_class.get(i).className + "/list" + "?access_token=" + access_token;
+                boolean b = getAssetChildClass(ctx, urlStr);
+                if (!b) {
+                    SafeHandler.onSuccess(handler, false);
+                }
+            }
+
+            SafeHandler.onSuccess(handler, true);
+        }
+
 
     }
 
-    /**列出某资产三级分类下所有设备**/
+    /**
+     * 列出某资产三级分类下所有设备*
+     */
 
-    public static void getAsset_Three_class(Context ctx, final String className3, final String access_token, boolean refresh,
-                                            final HttpRequestHandler<ArrayList<String>> handler) {
-        String urlStr = ASSET_THREE_CLASS_URL + className3 + "/list" + "?access_token=" + access_token;
+    public static void getAsset_Three_class(Context ctx, final ArrayList<Asset_two_class> two_classes, final String access_token, boolean refresh,
+                                            final HttpRequestHandler<Boolean> handler) {
+        String ASSET_THREE_CLASS_URL = AccountUtils.getIp(ctx) + "asset/class3/";
+        if (two_classes != null) {
+            for (int i = 0; i < two_classes.size(); i++) {
+                String urlStr = ASSET_THREE_CLASS_URL + two_classes.get(i).object_name + "/list" + "?access_token=" + access_token;
 
-        getAssetThreeClass(ctx, urlStr, refresh, handler);
+                boolean b = getAssetThreeClass(ctx, urlStr);
+                if (!b) {
+                    SafeHandler.onSuccess(handler, false);
+                }
+            }
+
+            SafeHandler.onSuccess(handler, true);
+        }
 
     }
 
@@ -126,6 +164,8 @@ public class Manager {
      */
     public static void getLoginout(Context ctx, final String access_token, boolean refresh,
                                    final HttpRequestHandler<ArrayList<String>> handler) {
+        String LOGOUT_URL = AccountUtils.getIp(ctx) + "user/logout";
+
         Loginout(ctx, LOGOUT_URL + "?access_token=" + access_token, refresh, handler);
 
     }
@@ -170,6 +210,8 @@ public class Manager {
 
     private static void requestOnceWithURLString(final Context cxt, final String username, final String password,
                                                  final HttpRequestHandler<String> handler) {
+        String SIGN_IN_URL = AccountUtils.getIp(cxt) + "user/login";
+        Log.i(TAG, "SIGN_IN_URL=" + SIGN_IN_URL);
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.put("username", username);
@@ -200,8 +242,27 @@ public class Manager {
      * @param refresh   是否从缓存中读取
      * @param handler   结果处理
      */
-    public static void getAssetClass(final Context ctx, String urlString, final String access_token,boolean refresh,
-                                     final HttpRequestHandler<ArrayList<String>> handler) {
+    public static void getAssetClass(final Context ctx, String urlString, final String access_token, boolean refresh,
+                                     final HttpRequestHandler<ArrayList<Asset_class>> handler) {
+        Log.i(TAG, "AurlString=" + urlString);
+
+        Uri uri = Uri.parse(urlString);
+        String path = uri.getLastPathSegment();
+        String param = uri.getEncodedQuery();
+        String key = path;
+        if (param != null)
+            key += param;
+        if (!refresh) {
+            //尝试从缓存中加载
+            ArrayList<Asset_class> asset_classes = PersistenceHelper.loadModelList(ctx, key);
+            if (asset_classes != null && asset_classes.size() > 0) {
+                SafeHandler.onSuccess(handler, asset_classes);
+                return;
+            }
+        }
+
+
+        final String finalKey = key;
 
         requestAssetURLString(ctx, urlString, new HttpRequestHandler<String>() {
             @Override
@@ -210,31 +271,11 @@ public class Manager {
 
             @Override
             public void onSuccess(String data) {
-                List<Asset_class> asset_classes = JsonUtils.parsingAssetClass(ctx, data);
-                for (int i=0;i<asset_classes.size();i++) {
-                    String asset_name=asset_classes.get(0).className;
-                    //根据资产分类获取三级资产
-                    Manager.getAsset_Child_class(ctx,asset_name,access_token,true,new HttpRequestHandler<ArrayList<String>>() {
-                        @Override
-                        public void onSuccess(ArrayList<String> data) {
-                            Log.i(TAG,"child***1");
-                        }
-
-                        @Override
-                        public void onSuccess(ArrayList<String> data, int totalPages, int currentPage) {
-                        }
-
-                        @Override
-                        public void onFailure(String error) {
-
-                        }
-                    } );
 
 
-                }
-                SafeHandler.onSuccess(handler,null);
+                ArrayList<Asset_class> asset_classes = JsonUtils.parsingAssetClass(ctx, data, finalKey);
+                SafeHandler.onSuccess(handler, asset_classes);
             }
-
 
 
             @Override
@@ -245,89 +286,66 @@ public class Manager {
     }
 
     /**
-     * 获取资产三级分类
+     * 获取资产二级分类
      *
      * @param ctx
      * @param urlString URL地址
-     * @param refresh   是否从缓存中读取
-     * @param handler   结果处理
      */
-    public static void getAssetChildClass(final Context ctx, String urlString, final String access_token,boolean refresh,
-                                          final HttpRequestHandler<ArrayList<String>> handler) {
-        requestAssetURLString(ctx, urlString, new HttpRequestHandler<String>() {
+    public static boolean getAssetChildClass(final Context ctx, String urlString) {
+        Log.i(TAG, "BurlString=" + urlString);
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.setTimeout(60 * 10000);
+        client.get(ctx, urlString, new TextHttpResponseHandler() {
             @Override
-            public void onSuccess(String data, int totalPages, int currentPage) {
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
             }
 
             @Override
-            public void onSuccess(String data) {
-                List<Asset_two_class> asset_two_classes=JsonUtils.parsingAssetTwoClass(ctx,data);
-                for(int i=0;i<asset_two_classes.size();i++){
-                    String object_name=asset_two_classes.get(i).object_name;
-                    String object_name_ch=asset_two_classes.get(i).object_name_ch;
-                    Manager.getAsset_Three_class(ctx,object_name,access_token,true,new HttpRequestHandler<ArrayList<String>>() {
-                        @Override
-                        public void onSuccess(ArrayList<String> data) {
-                        }
-
-                        @Override
-                        public void onSuccess(ArrayList<String> data, int totalPages, int currentPage) {
-                        }
-
-                        @Override
-                        public void onFailure(String error) {
-                            Log.i(TAG,"error"+error);
-                        }
-                    });
-
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                if (statusCode == 200) {
+                    ArrayList<Asset_two_class> asset_two_classes = JsonUtils.parsingAssetTwoClass(ctx, responseString);
+                    mDataSource.isInsertTwoAsset(asset_two_classes);
                 }
             }
-
-
-            @Override
-            public void onFailure(String error) {
-                SafeHandler.onFailure(handler, error);
-            }
         });
+        return true;
     }
+
+
     /**
      * 获取3分类下的所有设备
      *
      * @param ctx
      * @param urlString URL地址
-     * @param refresh   是否从缓存中读取
-     * @param handler   结果处理
      */
-    public static void getAssetThreeClass(final Context ctx, String urlString, boolean refresh,
-                                          final HttpRequestHandler<ArrayList<String>> handler) {
-        requestAssetURLString(ctx, urlString, new HttpRequestHandler<String>() {
+    public static boolean getAssetThreeClass(final Context ctx, String urlString) {
+        Log.i(TAG, "CurlString=" + urlString);
+
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.setTimeout(60 * 10000);
+        client.get(ctx, urlString, new TextHttpResponseHandler() {
             @Override
-            public void onSuccess(String data, int totalPages, int currentPage) {
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
             }
 
             @Override
-            public void onSuccess(String data) {
-                List<Asset_three_class> list=JsonUtils.parsingAssetthreeClass(ctx,data);
-                for (int i=0;i<list.size();i++){
-                    String  assetNo=list.get(i).assetNo;
-                    Log.i(TAG,"as*****="+assetNo);
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                if (statusCode == 200) {
+                    List<Asset_three_class> list = JsonUtils.parsingAssetthreeClass(ctx, responseString);
+                    mDataSource.isInsertThreeAsset((ArrayList<Asset_three_class>) list);
                 }
-                mDataSource.isInsertThreeAsset((ArrayList<Asset_three_class>) list);
-                SafeHandler.onSuccess(handler,null);
-            }
-
-
-            @Override
-            public void onFailure(String error) {
-                SafeHandler.onFailure(handler, error);
             }
         });
+        return true;
     }
 
 
     private static void requestAssetURLString(final Context cxt, final String urlstring,
                                               final HttpRequestHandler<String> handler) {
         AsyncHttpClient client = new AsyncHttpClient();
+        client.setTimeout(60 * 10000);
         client.get(cxt, urlstring, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
@@ -354,7 +372,7 @@ public class Manager {
      */
     public static void getInspect_tickets(Context ctx, String urlString, boolean refresh,
                                           final HttpRequestHandler<ArrayList<Ins_task_ticket>> handler) {
-
+        Log.i(TAG, "urlString=" + urlString);
         Uri uri = Uri.parse(urlString);
         String path = uri.getLastPathSegment();
         String param = uri.getEncodedQuery();
@@ -393,9 +411,9 @@ public class Manager {
 
     private static void requestIns_task_device(final Context cxt, final String ticketID, final String access_token, final boolean refresh,
                                                final HttpRequestHandler<ArrayList<Ins_task_device>> handler) {
-
+        String INSPECT_DEVICE_URL = AccountUtils.getIp(cxt) + "inspect/inspect_ticket";
         String urlString = INSPECT_DEVICE_URL + "/" + ticketID + "?access_token=" + access_token;
-
+        Log.i(TAG, "DurlString=" + urlString);
         Uri uri = Uri.parse(urlString);
         String path = uri.getLastPathSegment();
         String param = uri.getEncodedQuery();
@@ -403,14 +421,14 @@ public class Manager {
         if (param != null)
             key += param;
 
-        if (!refresh) {
-            //尝试从缓存中加载
-            ArrayList<Ins_task_device> topics = PersistenceHelper.loadModelList(cxt, key);
-            if (topics != null && topics.size() > 0) {
-                SafeHandler.onSuccess(handler, topics);
-                return;
-            }
-        }
+//        if (!refresh) {
+//            //尝试从缓存中加载
+//            ArrayList<Ins_task_device> topics = PersistenceHelper.loadModelList(cxt, key);
+//            if (topics != null && topics.size() > 0) {
+//                SafeHandler.onSuccess(handler, topics);
+//                return;
+//            }
+//        }
 
         new AsyncHttpClient().get(cxt, urlString,
                 new WrappedJsonHttpResponseHandler<Ins_task_device>(cxt, Ins_task_device.class, key, handler));
@@ -420,37 +438,12 @@ public class Manager {
     /**
      * 上传巡检任务的结果*
      */
-    public static boolean uploadTask(final Context cxt, final String ticket, final JSONArray result, final String access_token,
-                                     final HttpRequestHandler<Integer> handler) {
-        requestTaskWithURLString(cxt, ticket, result, access_token, new HttpRequestHandler<String>() {
-            @Override
-            public void onSuccess(String data, int totalPages, int currentPage) {
+    public static void uploadTask(final Context cxt, final String ticket, final JSONArray result, final String access_token,
+                                  final HttpRequestHandler<Integer> handler) {
+        String UPLOAD_DEVICE_URL = AccountUtils.getIp(cxt) + "inspect/inspect_ticket/tickets";
 
-
-            }
-
-            @Override
-            public void onSuccess(String data) {
-                SafeHandler.onSuccess(handler, null);
-            }
-
-
-            @Override
-            public void onFailure(String error) {
-
-                SafeHandler.onFailure(handler, error);
-            }
-        });
-        return false;
-    }
-
-
-    /**
-     * 提交巡检结果*
-     */
-    private static void requestTaskWithURLString(final Context cxt, final String ticket, final JSONArray insDeviceRecords, final String access_token,
-                                                 final HttpRequestHandler<String> handler) {
         String URL = UPLOAD_DEVICE_URL + "?access_token=" + access_token;
+
         AsyncHttpClient client = new AsyncHttpClient();
 
 
@@ -459,7 +452,7 @@ public class Manager {
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("ticketID", ticket);
-                jsonObject.put("insDeviceRecords", insDeviceRecords);
+                jsonObject.put("insDeviceRecords", result);
                 jsonArray.put(jsonObject);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -481,8 +474,12 @@ public class Manager {
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                    Log.i(TAG, "statusCode=" + statusCode);
                     if (statusCode == 200) {
-                        SafeHandler.onSuccess(handler, responseString);
+
+                        SafeHandler.onSuccess(handler, null);
+
+
                     }
                 }
             });
@@ -490,8 +487,8 @@ public class Manager {
             e.printStackTrace();
         }
 
-
     }
+
 
     /**退出给登陆**/
 
@@ -503,6 +500,7 @@ public class Manager {
      * @param refresh   是否从缓存中读取
      * @param handler   结果处理
      */
+
     public static void Loginout(final Context ctx, String urlString, boolean refresh,
                                 final HttpRequestHandler<ArrayList<String>> handler) {
         requestLoginoutURLString(ctx, urlString, new HttpRequestHandler<String>() {

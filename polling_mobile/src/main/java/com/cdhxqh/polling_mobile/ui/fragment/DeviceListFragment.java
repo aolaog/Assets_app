@@ -1,6 +1,7 @@
 package com.cdhxqh.polling_mobile.ui.fragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +13,8 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.cdhxqh.polling_mobile.Application;
 import com.cdhxqh.polling_mobile.R;
@@ -33,10 +36,9 @@ public class DeviceListFragment extends BaseFragment {
      * mRecyclerView*
      */
     private RecyclerView mRecyclerView;
-    /****/
-    RecyclerView.LayoutManager mLayoutManager;
-    /****/
-    SwipeRefreshLayout mSwipeLayout;
+    /**暂无信息的布局**/
+    LinearLayout linearLayout;
+
 
     /**
      * DeviceListAdapter*
@@ -45,6 +47,8 @@ public class DeviceListFragment extends BaseFragment {
     String task_id;
 
     PollDataSource mDataSource = Application.getDataSource();
+
+    private ProgressDialog mProgressDialog;
 
     public DeviceListFragment() {
     }
@@ -60,22 +64,12 @@ public class DeviceListFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_device_list, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.list_recyclerView);
-        mSwipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
-        mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-            }
-        });
-        mSwipeLayout.setColorScheme(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-        mSwipeLayout.setProgressViewOffset(false, 0,
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+
+        linearLayout=(LinearLayout)view.findViewById(R.id.not_linear_layout_id);
+
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
     }
 
@@ -87,6 +81,8 @@ public class DeviceListFragment extends BaseFragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+
+
     }
 
     @Override
@@ -99,8 +95,15 @@ public class DeviceListFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
         if (getArguments().containsKey("task_id")) {
             task_id = getArguments().getString("task_id");
+            Log.i(TAG,"task_id="+task_id);
+
 
         }
+
+        mProgressDialog = ProgressDialog.show(getActivity(), null,
+                getActivity().getString(R.string.loading_hint_text), true, true);
+
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         layoutManager.scrollToPosition(0);
@@ -117,9 +120,8 @@ public class DeviceListFragment extends BaseFragment {
      * setAdapter*
      */
     private void setAdapter() {
-        deviceListAdapter = new DeviceListAdapter(getActivity());
+        deviceListAdapter = new DeviceListAdapter(getActivity(), task_id);
         mRecyclerView.setAdapter(deviceListAdapter);
-//        addTestData();
         getByTaskId(task_id);
     }
 
@@ -129,7 +131,12 @@ public class DeviceListFragment extends BaseFragment {
      */
     private void getByTaskId(String task_id) {
         ArrayList<Ins_task_device> list = mDataSource.getAllDevice(task_id);
-        deviceListAdapter.update( list, true);
+        mProgressDialog.dismiss();
+        if (list == null) {
+            linearLayout.setVisibility(View.VISIBLE);
+            return;
+        }
+        deviceListAdapter.update(list, true);
     }
 
 }

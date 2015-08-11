@@ -22,9 +22,12 @@ public class BaseActivity extends ActionBarActivity
     protected boolean mIsLogin;
     protected MemberModel mLoginProfile;
 
+    private String sverIp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sverIp=AccountUtils.getIp(BaseActivity.this);
 
         mIsLogin = AccountUtils.isLogined(this);
         if (mIsLogin)
@@ -130,4 +133,12 @@ public class BaseActivity extends ActionBarActivity
         String message = getString(messageId);
         showProgressBar(true, message);
     }
+
+    /**获取设置的Ip信息**/
+    public String ipInfo(){
+        sverIp=AccountUtils.getIp(BaseActivity.this);
+        return sverIp;
+    }
+
+
 }

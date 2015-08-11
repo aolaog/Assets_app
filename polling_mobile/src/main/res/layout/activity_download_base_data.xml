@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dimens_10"
+    tools:context="com.cdhxqh.polling_mobile.ui.DownloadBaseDataActivity">
+
+    <Button
+        android:id="@+id/asset_one_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="资产一级"
+        android:textColor="@color/photo_crop_highlight_color" />
+
+    <Button
+        android:id="@+id/asset_two_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_5"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="资产二级"
+        android:textSize="20dp"
+        android:textColor="@color/photo_crop_highlight_color" />
+
+    <Button
+        android:id="@+id/asset_three_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_5"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="资产三级"
+        android:textColor="@color/photo_crop_highlight_color" />
+
+
+    <Button
+        android:id="@+id/btn_all_down_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/poll_title_bj"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="全部下载"
+        android:textColor="@color/photo_crop_highlight_color" />
+
+</LinearLayout>

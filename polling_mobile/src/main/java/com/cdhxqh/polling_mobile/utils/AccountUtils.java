@@ -92,37 +92,6 @@ public class AccountUtils {
         data.delete();
     }
 
-//    /**
-//     * 保存节点收藏信息
-//     * @param cxt
-//     * @param nodes
-//     */
-//    public static void writeFavoriteNodes(Context cxt, ArrayList<NodeModel> nodes) {
-//        PersistenceHelper.saveObject(cxt, nodes, key_fav_nodes);
-//        for(NodeModel node : nodes){
-//            Application.getDataSource().favoriteNode(node.name, true);
-//        }
-//    }
-//
-//    /**
-//     * 获取收藏节点信息
-//     * @param cxt
-//     * @return
-//     */
-//    public static ArrayList<NodeModel> readFavoriteNodes(Context cxt) {
-//        return (ArrayList<NodeModel>) PersistenceHelper.loadObject(cxt, key_fav_nodes);
-//    }
-//
-//
-//    /**
-//     * 删除节点信息
-//     * @param cxt
-//     */
-//    public static void removeFavNodes(Context cxt) {
-//        File data = cxt.getFileStreamPath(key_fav_nodes);
-//        data.delete();
-//    }
-//
     /**
      * 清除所有用户相关资料
      * @param cxt
@@ -152,7 +121,6 @@ public class AccountUtils {
 
     }
 
-    ;
 
 
     /**
@@ -200,5 +168,44 @@ public class AccountUtils {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
         return sharedPreferences.getString(cxt.getString(R.string.logined_member_password), "");
     }
+
+
+    /**记录数据是否下载**/
+
+    public static void setIsDown(Context cxt, boolean isChecked) {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        sharedPreferences.edit().putBoolean(cxt.getString(R.string.is_down), isChecked).commit();
+
+    }
+
+
+    /**读取数据是否下载**/
+    public static boolean getIsDown(Context cxt) {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        return sharedPreferences.getBoolean(cxt.getString(R.string.is_down), false);
+    }
+
+
+
+    /**设置IP**/
+
+    public static void setIP(Context cxt, String ip) {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        sharedPreferences.edit().putString(cxt.getString(R.string.set_ip), ip).commit();
+
+    }
+
+
+    /**读取Ip**/
+    public static String getIp(Context cxt) {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(cxt);
+        return sharedPreferences.getString(cxt.getString(R.string.set_ip), "");
+    }
+
+
 
 }

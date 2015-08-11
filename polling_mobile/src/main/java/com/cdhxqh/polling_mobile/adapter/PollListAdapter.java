@@ -174,8 +174,7 @@ public class PollListAdapter extends RecyclerView.Adapter<PollListAdapter.ViewHo
             Manager.getIns_task_device(mContext, ticketID, access_token, true, new HttpRequestHandler<ArrayList<Ins_task_device>>() {
                 @Override
                 public void onSuccess(ArrayList<Ins_task_device> data) {
-
-                    Log.i(TAG,"***&666");
+                    Log.i(TAG,"data＝"+data);
                     pollTaskModel.setStatus(2);
                     mDataSource.updateTaskTicket(pollTaskModel);
                     notifyDataSetChanged();

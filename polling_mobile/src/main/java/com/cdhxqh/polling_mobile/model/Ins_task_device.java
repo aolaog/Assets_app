@@ -43,6 +43,8 @@ public class Ins_task_device extends PollModel implements Parcelable {
      * 巡检任务Id
      */
     public String ticketID;
+    /**insDeviceID**/
+    public String insDeviceID;
 
 
     public Ins_task_device() {
@@ -54,6 +56,7 @@ public class Ins_task_device extends PollModel implements Parcelable {
         relatedDevices = in.readString();
         rfid = in.readString();
         ticketID = in.readString();
+        insDeviceID = in.readString();
     }
 
     public void parse(JSONObject jsonObject) throws JSONException {
@@ -62,6 +65,7 @@ public class Ins_task_device extends PollModel implements Parcelable {
         relatedDevices = jsonObject.optString("relatedDevices");
         rfid = jsonObject.optString("rfid");
         ticketID = jsonObject.optString("ticketID");
+        insDeviceID = jsonObject.optString("insDeviceID");
     }
 
     @Override
@@ -76,6 +80,7 @@ public class Ins_task_device extends PollModel implements Parcelable {
         dest.writeString(relatedDevices);
         dest.writeString(rfid);
         dest.writeString(ticketID);
+        dest.writeString(insDeviceID);
     }
 
     public String getAssetNo() {
@@ -116,5 +121,13 @@ public class Ins_task_device extends PollModel implements Parcelable {
 
     public void setTicketID(String ticketID) {
         this.ticketID = ticketID;
+    }
+
+    public String getInsDeviceID() {
+        return insDeviceID;
+    }
+
+    public void setInsDeviceID(String insDeviceID) {
+        this.insDeviceID = insDeviceID;
     }
 }

@@ -61,15 +61,13 @@
         <activity
             android:name=".ui.TaskResultActivity"
             android:label="@string/title_activity_task_result"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"
-            android:parentActivityName=".ui.TaskScannActivity" >
+            android:parentActivityName=".ui.TaskScannActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
         </activity>
-
-
         <activity
             android:name=".ui.Asset_Details_Activity"
             android:label="@string/title_activity_asset__details_"
-            android:parentActivityName=".ui.TaskScannActivity">
+            android:parentActivityName=".ui.TaskScannActivity" >
         </activity>
 
         <!-- umeng自动更新 -->
@@ -82,7 +80,10 @@
             android:name="com.umeng.update.UpdateDialogActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
-
+        <activity
+            android:name=".ui.DownloadBaseDataActivity"
+            android:label="@string/title_activity_download_base_data" >
+        </activity>
     </application>
 
 </manifest>

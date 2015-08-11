@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.cdhxqh.polling_mobile.model.Asset_three_class;
+import com.cdhxqh.polling_mobile.model.Asset_two_class;
 import com.cdhxqh.polling_mobile.model.Ins_task_device;
 import com.cdhxqh.polling_mobile.model.Ins_task_ticket;
 
@@ -31,12 +32,21 @@ public class PollDataSource {
      * 巡检设备*
      */
     private String[] DeviceAllColumns = {"assetNo",
-            "position", "relatedDevices", "rfid", "ticketID"};
+            "position", "relatedDevices", "rfid", "ticketID","insDeviceID"};
     /**
      * 巡检任务*
      */
     private String[] TaskAllColumns = {"id",
             "inspectDate", "inspectUser", "inspectUserID", "remark", "startTime", "endTime", "status", "taskTempletID", "taskTempletName"};
+
+
+    /**
+     * 查询巡检2级设备*
+     */
+    private String[] TWOAllColumns = {"object_name", "object_name_ch"};
+
+
+
     /**
      * 查询巡检3级设备*
      */
@@ -92,9 +102,42 @@ public class PollDataSource {
         values.put("relatedDevices", model.relatedDevices);
         values.put("rfid", model.rfid);
         values.put("ticketID", model.ticketID);
-        Log.i(TAG, "assetNo=" + model.assetNo + ",position=" + model.position + ",relatedDevices=" + model.relatedDevices + ",rfid=" + model.rfid + ",ticketID1=" + model.ticketID);
+        values.put("insDeviceID", model.insDeviceID);
+        Log.i(TAG, "assetNo=" + model.assetNo + ",position=" + model.position + ",relatedDevices=" + model.relatedDevices + ",rfid=" + model.rfid + ",ticketID1=" + model.ticketID+",insDeviceID="+model.insDeviceID);
         database.insert(DatabaseHelper.DEVICE_TABLE_NAME, null, values);
     }
+
+
+    /**
+     * 插入二级资产数据*
+     */
+    private void insertTwoAsset(Asset_two_class model) {
+        ContentValues values = new ContentValues();
+
+        values.put("object_name", model.object_name);
+        values.put("object_name_ch", model.object_name_ch);
+        Log.i(TAG, "object_name=" + model.object_name + ",object_name_ch=" + model.object_name_ch);
+        database.insert(DatabaseHelper.ASSET_TWO_TABLE_NAME, null, values);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /**
@@ -144,6 +187,41 @@ public class PollDataSource {
             }
         }
     }
+
+
+    /**
+     * 判断二级资产是否插入数据*
+     */
+    public void isInsertTwoAsset(ArrayList<Asset_two_class> list) {
+        //数据项不存在,插入
+        for (int i = 0; i < list.size(); i++) {
+
+            Asset_two_class model = list.get(i);
+            String object_name = model.object_name;
+            Log.i(TAG,"object_name="+object_name);
+            if (!isTwoDeviceExisted(object_name)) {
+                insertTwoAsset(model);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * 判断三级资产是否插入数据*
@@ -202,16 +280,16 @@ public class PollDataSource {
         return false;
     }
 
+
     /**
-     * 三级资产是否存在数据表中
+     * 二级资产是否存在数据表中
      *
-     * @param assetNo
+     * @param object_name
      * @return
      */
-    private boolean isThreeDeviceExisted(String assetNo) {
-        Log.i(TAG, "this is sasdsadsas");
-        Cursor cursor = database.query(DatabaseHelper.ASSET_THREE_TABLE_NAME, ThreeAllColumns,
-                "assetNo" + " = '" + assetNo + "'", null,
+    private boolean isTwoDeviceExisted(String object_name) {
+        Cursor cursor = database.query(DatabaseHelper.ASSET_TWO_TABLE_NAME, TWOAllColumns,
+                "object_name" + " = '" + object_name + "'", null,
                 null, null, null);
         Log.i(TAG, "this is sasdsadsas******");
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
@@ -220,6 +298,44 @@ public class PollDataSource {
             return true;
         }
         Log.i(TAG, "this is false");
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * 三级资产是否存在数据表中
+     *
+     * @param assetNo
+     * @return
+     */
+    private boolean isThreeDeviceExisted(String assetNo) {
+        Cursor cursor = database.query(DatabaseHelper.ASSET_THREE_TABLE_NAME, ThreeAllColumns,
+                "assetNo" + " = '" + assetNo + "'", null,
+                null, null, null);
+        if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+            cursor.close();
+            return true;
+        }
         return false;
     }
 
@@ -270,7 +386,8 @@ public class PollDataSource {
                 model.setRelatedDevices(cursor.getString(2)); //相关设备
                 model.setRfid(cursor.getString(3));//rfid
                 model.setTicketID(cursor.getString(4)); //巡检单ID
-                Log.i(TAG, "AssetNo=" + cursor.getString(0) + "/n" + "Position=" + cursor.getString(1) + "/n" + "RelatedDevices=" + cursor.getString(2) + "/n" + "Rfid=" + cursor.getString(3) + "/n" + "TicketID=" + cursor.getString(4));
+                model.setInsDeviceID(cursor.getString(5)); //巡检设备ID
+                Log.i(TAG, "AssetNo=" + cursor.getString(0) + "/n" + "Position=" + cursor.getString(1) + "/n" + "RelatedDevices=" + cursor.getString(2) + "/n" + "Rfid=" + cursor.getString(3) + "/n" + "TicketID=" + cursor.getString(4)+",InsDeviceID"+cursor.getString(5));
                 nodes.add(model);
             }
             cursor.close();
@@ -278,6 +395,39 @@ public class PollDataSource {
 
         return nodes;
     }
+
+
+    /**查询二级分类的信息**/
+
+    public ArrayList<Asset_two_class> getAllTwoDevice() {
+        ArrayList<Asset_two_class> nodes = new ArrayList<Asset_two_class>();
+        Cursor cursor = database.query(DatabaseHelper.ASSET_TWO_TABLE_NAME, TWOAllColumns,
+                null, null, null, null,
+                null);
+        if (cursor != null && cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                Asset_two_class model = new Asset_two_class();
+
+                model.setObject_name(cursor.getString(0)); //资产名称
+                model.setObject_name_ch(cursor.getString(1)); //资产中文名称
+
+                nodes.add(model);
+            }
+            cursor.close();
+        }
+
+        return nodes;
+    }
+
+
+
+
+
+
+
+
+
+
 
     /**
      * 根据RFID查询对应资产*

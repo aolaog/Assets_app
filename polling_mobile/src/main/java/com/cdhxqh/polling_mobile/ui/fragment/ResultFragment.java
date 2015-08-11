@@ -319,37 +319,6 @@ public class ResultFragment extends BaseFragment {
     private View.OnClickListener submitOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            mProgressDialog = ProgressDialog.show(getActivity(), null,
-                    "数据提交中....", true, true);
-            JSONArray postJson = posttingData(getData());
-            Manager.uploadTask(getActivity(), ticketID.getText().toString(), postJson, mLoginProfile.access_token, new HttpRequestHandler<Integer>() {
-                @Override
-                public void onSuccess(Integer data) {
-                    Log.i(TAG, "**8");
-                    MessageUtils.showMiddleToast(getActivity(), "提交成功");
-                    mProgressDialog.dismiss();
-                }
-
-                @Override
-                public void onSuccess(Integer data, int totalPages, int currentPage) {
-                    Log.i(TAG, "asdsads");
-                    MessageUtils.showMiddleToast(getActivity(), "提交成功");
-                    mProgressDialog.dismiss();
-                }
-
-                @Override
-                public void onFailure(String error) {
-                    MessageUtils.showMiddleToast(getActivity(), "提交失败");
-                    mProgressDialog.dismiss();
-                }
-            });
-
-
-            String urlStr = Manager.IMAGE_URL + "?" + mLoginProfile.access_token;
-            Map<String, String> params = new HashMap<String, String>();
-            FormFile[] files = null;
-            uploadImages(urlStr, params, files);
-
 
         }
     };
@@ -397,6 +366,7 @@ public class ResultFragment extends BaseFragment {
             file.mkdirs();// 创建文件夹
             String fileName = "/sdcard/myImage/" + name;
 
+
             try {
                 b = new FileOutputStream(fileName);
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件
@@ -418,21 +388,6 @@ public class ResultFragment extends BaseFragment {
         }
     }
 
-    /**
-     * 提交图片
-     *
-     * @param urlpath 上传路径
-     * @param params  请求参数 key为参数名,value为参数值
-     * @param files   上传文件
-     *                *
-     */
-    private void uploadImages(String urlpath, Map<String, String> params, FormFile[] files) {
-        try {
 
-            boolean isupload = FileUtils.FilePost(urlpath, params, files);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }

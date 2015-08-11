@@ -30,8 +30,12 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.Vi
     ArrayList<Ins_task_device> mDeviceModel = new ArrayList<Ins_task_device>();
     PollDataSource mDataSource = Application.getDataSource();
 
-    public DeviceListAdapter(Context context) {
+    /**巡检ID**/
+    String task_id;
+
+    public DeviceListAdapter(Context context,String task_id) {
         mContext = context;
+        this.task_id=task_id;
     }
 
     @Override
@@ -43,7 +47,7 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         final Ins_task_device deviceModel = mDeviceModel.get(i);
-
+        Log.i(TAG,"insDeviceID="+deviceModel.insDeviceID);
         viewHolder.nameText.setText(deviceModel.assetNo);
         viewHolder.numText.setText(deviceModel.rfid);
         viewHolder.locationText.setText(deviceModel.position);
@@ -54,6 +58,8 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.Vi
             public void onClick(View v) {
                 Intent intent = new Intent();
                 Bundle bundle=new Bundle();
+
+                bundle.putString("task_id",task_id);
                 bundle.putParcelable("ins_task_device",deviceModel);
                 intent.putExtras(bundle);
                 intent.setClass(mContext, TaskScannActivity.class);

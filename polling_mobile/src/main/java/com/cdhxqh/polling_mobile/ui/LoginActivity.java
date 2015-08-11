@@ -1,18 +1,26 @@
 package com.cdhxqh.polling_mobile.ui;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.preference.Preference;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
+import android.text.TextUtils;
+import android.util.Config;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cdhxqh.polling_mobile.AppManager;
@@ -38,11 +46,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private EditText mPassword;
     private Button mLogin;
     private ProgressDialog mProgressDialog;
-    private MemberModel mProfile;
     private MemberModel mLoginProfile;
     private CheckBox checkBox;
 
     private boolean isRemember; //是否记住密码
+
+    /**设置IP**/
+    TextView ipText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +66,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mPassword = (EditText) findViewById(R.id.login_password_edit);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         mLogin = (Button) findViewById(R.id.login_login_btn);
+
+        ipText=(TextView)findViewById(R.id.login_set_ip_text);
+        ipText.setOnClickListener(this);
         mLogin.setOnClickListener(this);
         checkBox.setOnCheckedChangeListener(cheBoxOnCheckedChangListener);
         boolean isChecked = AccountUtils.getIsChecked(LoginActivity.this);
@@ -81,6 +95,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     login();
                 }
                 break;
+            case R.id.login_set_ip_text:
+                setIpAddress();
+                break;
 
         }
     }
@@ -104,9 +121,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     @Override
                     public void onSuccess(Integer data) {
 
-                        mProgressDialog.setTitle("登陆成功");
-//                        MessageUtils.showMiddleToast(LoginActivity.this, "登陆成功");
-//                        mProgressDialog.dismiss();
+                        MessageUtils.showMiddleToast(LoginActivity.this, "登陆成功");
 
 
                         if (checkBox.isChecked()) {
@@ -114,10 +129,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             saveUserNameAndPassWord();
                         }
 
-//                        mProgressDialog.dismiss();
-//                        startIntent();
-
-                        getProfile();
+                        mProgressDialog.dismiss();
+                        boolean b = AccountUtils.getIsDown(LoginActivity.this);
+                        Log.i(TAG, "b=" + b);
+                        startIntent(b);
 
                     }
 
@@ -144,21 +159,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
-    /**
-     * 获取资产数据*
-     */
-    private void getProfile() {
-        mProgressDialog.setMessage(getString(R.string.login_obtain_profile));
-        Manager.getAsset_class(this, mLoginProfile.access_token, true, profileHandler);
-    }
-
 
     /**
      * 启动*
      */
-    private void startIntent() {
+    private void startIntent(boolean b) {
         Intent inetnt = new Intent();
-        inetnt.setClass(this, MainActivity.class);
+        if (b) {
+            inetnt.setClass(this, MainActivity.class);
+        } else {
+            inetnt.setClass(this, DownloadBaseDataActivity.class);
+        }
         startActivity(inetnt);
     }
 
@@ -194,34 +205,52 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
 
-    private HttpRequestHandler<ArrayList<String>> profileHandler = new HttpRequestHandler<ArrayList<String>>() {
-        @Override
-        public void onSuccess(ArrayList<String> data) {
-            Log.i(TAG, "profileHandler data=" + data);
-            MessageUtils.showMiddleToast(LoginActivity.this, "获取信息成功");
-            mProgressDialog.dismiss();
-            startIntent();
-        }
+    /**设置服务段的IP地址**/
+   private void setIpAddress(){
+       final EditText editText = new EditText(LoginActivity.this);
+       String sIp=AccountUtils.getIp(LoginActivity.this);
+       if(TextUtils.isEmpty(sIp)) {
+           sIp = Manager.HTTP_API_URL;
+       }
+           editText.setText(sIp);
 
-        @Override
-        public void onSuccess(ArrayList<String> data, int totalPages, int currentPage) {
-            Log.i(TAG, "1profileHandler data=" + data);
-            MessageUtils.showMiddleToast(LoginActivity.this, "获取信息成功");
-            mProgressDialog.dismiss();
-            startIntent();
-        }
+       editText.setTextSize(20);
+       final InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        @Override
-        public void onFailure(String error) {
-            Log.i(TAG, "onFailure=" + error);
-            MessageUtils.showMiddleToast(LoginActivity.this, "获取信息失败");
-            mProgressDialog.dismiss();
-            startIntent();
+       new AlertDialog.Builder(LoginActivity.this)
+               .setTitle("设置服务器地址")
+               .setIcon(android.R.drawable.ic_dialog_info)
+               .setView(editText)
+               .setPositiveButton(
+                       "确定",
+                       new android.content.DialogInterface.OnClickListener() {
 
-        }
-    };
+                           @Override
+                           public void onClick(DialogInterface dialog,
+                                               int which) {
+                               String values = editText.getText()
+                                       .toString();
+                               AccountUtils.setIP(LoginActivity.this,values);
+                               Log.i(TAG, editText.getText().toString());
+                               manager.toggleSoftInput(0,
+                                       InputMethodManager.HIDE_NOT_ALWAYS);
+                           }
+                       })
+               .setNegativeButton(
+                       "取消",
+                       new android.content.DialogInterface.OnClickListener() {
+
+                           @Override
+                           public void onClick(DialogInterface dialog,
+                                               int which) {
+                               manager.toggleSoftInput(0,
+                                       InputMethodManager.HIDE_NOT_ALWAYS);
+
+                           }
+                       }).show();
+   }
+
 
 }
 
-/**记住用户名和密码**/
 

@@ -35,6 +35,11 @@ public class Ins_device_log extends PollModel implements Parcelable {
      * 资产编码*
      */
     public String insDeviceID;
+
+    /**巡检单号**/
+    public String ticketID;
+
+
     /**
      * 巡检用户的ID
      */
@@ -64,6 +69,7 @@ public class Ins_device_log extends PollModel implements Parcelable {
         status = in.readString();
         questionTitle = in.readString();
         questionDetail = in.readString();
+        ticketID = in.readString();
     }
 
     public void parse(JSONObject jsonObject) throws JSONException {
@@ -74,6 +80,7 @@ public class Ins_device_log extends PollModel implements Parcelable {
         status = jsonObject.optString("status");
         questionTitle = jsonObject.optString("questionTitle");
         questionDetail = jsonObject.optString("questionDetail");
+        ticketID = jsonObject.optString("ticketID");
     }
 
     @Override
@@ -90,6 +97,16 @@ public class Ins_device_log extends PollModel implements Parcelable {
         dest.writeString(status);
         dest.writeString(questionTitle);
         dest.writeString(questionDetail);
+        dest.writeString(ticketID);
+    }
+
+
+    public String getTicketID() {
+        return ticketID;
+    }
+
+    public void setTicketID(String ticketID) {
+        this.ticketID = ticketID;
     }
 
     public String getAssetNo() {

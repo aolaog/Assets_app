@@ -52,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/textfield_default"
-            android:singleLine="true"
-            android:hint="@string/please_login_user_name_hint" />
+            android:hint="@string/please_login_user_name_hint"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/login_password_edit"
@@ -61,18 +61,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimens_10"
             android:background="@drawable/textfield_default"
+            android:hint="@string/please_password_hint"
             android:inputType="textPassword"
-            android:singleLine="true"
-            android:hint="@string/please_password_hint" />
+            android:singleLine="true" />
 
         <CheckBox
             android:id="@+id/checkBox"
+            style="@style/CustomCheckboxTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rember_password"
             android:layout_marginLeft="3dp"
-            style="@style/CustomCheckboxTheme"
-            />
+            android:text="@string/rember_password" />
     </LinearLayout>
 
     <LinearLayout
@@ -89,10 +88,29 @@
             android:id="@+id/login_login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_button_text"
             android:background="@color/login_button_bj"
+            android:text="@string/login_button_text"
             android:textColor="@color/photo_crop_highlight_color"
-            android:textSize="@dimen/dimens_20"/>
+            android:textSize="@dimen/dimens_20" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear_layout_5_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout_4_id"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/login_set_ip_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="设置IP" />
     </LinearLayout>
 
 </RelativeLayout>

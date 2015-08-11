@@ -8,6 +8,7 @@ import com.cdhxqh.polling_mobile.model.Asset_class;
 import com.cdhxqh.polling_mobile.model.Asset_three_class;
 import com.cdhxqh.polling_mobile.model.Asset_two_class;
 import com.cdhxqh.polling_mobile.model.MemberModel;
+import com.cdhxqh.polling_mobile.model.PersistenceHelper;
 import com.cdhxqh.polling_mobile.utils.AccountUtils;
 
 import org.json.JSONArray;
@@ -67,21 +68,24 @@ public class JsonUtils {
     /**
      * 解析资产分类信息*
      */
-    public static List<Asset_class> parsingAssetClass(final Context cxt, String data) {
+    public static ArrayList<Asset_class> parsingAssetClass(final Context cxt, String data, String key) {
 
         boolean isSuccess = false;
-        List<Asset_class> asset_classes=new ArrayList<Asset_class>();
+        ArrayList<Asset_class> asset_classes = new ArrayList<Asset_class>();
         try {
             JSONObject json = new JSONObject(data);
             isSuccess = json.getBoolean("isSuccess");
             if (isSuccess) {
                 JSONArray jsonArray = json.getJSONArray("data");
-                for (int i=0;i<jsonArray.length();i++){
-                    Asset_class asset_classe=new Asset_class();
-                    String jsons=jsonArray.getString(i);
-                    asset_classe.setId(i+1+"");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    Asset_class asset_classe = new Asset_class();
+                    String jsons = jsonArray.getString(i);
+                    asset_classe.setId(i + 1 + "");
                     asset_classe.setClassName(jsons);
                     asset_classes.add(asset_classe);
+
+                    PersistenceHelper.saveModelList(cxt, asset_classes, key);
+
                 }
 
             } else {
@@ -99,20 +103,22 @@ public class JsonUtils {
     /**
      * 解析二级分类*
      */
-    public static List<Asset_two_class> parsingAssetTwoClass(final Context cxt, String data) {
+    public static ArrayList<Asset_two_class> parsingAssetTwoClass(final Context cxt, String data) {
 
         boolean isSuccess = false;
-        List<Asset_two_class> asset_two_classs=new ArrayList<Asset_two_class>();
+        ArrayList<Asset_two_class> asset_two_classs = new ArrayList<Asset_two_class>();
         try {
             JSONObject json = new JSONObject(data);
             isSuccess = json.getBoolean("isSuccess");
             if (isSuccess) {
                 JSONArray jsonArray = json.getJSONArray("data");
-                for (int i=0;i<jsonArray.length();i++){
-                    JSONObject jsonObject=jsonArray.getJSONObject(i);
-                    Asset_two_class asset_two_class=new Asset_two_class();
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    Asset_two_class asset_two_class = new Asset_two_class();
                     asset_two_class.setObject_name(jsonObject.getString("object_name"));
                     asset_two_class.setObject_name_ch(jsonObject.getString("object_name_ch"));
+
+                    Log.i(TAG, "object_name=" + jsonObject.getString("object_name") + ",object_name_ch=" + jsonObject.getString("object_name_ch"));
                     asset_two_classs.add(asset_two_class);
                 }
 
@@ -134,24 +140,21 @@ public class JsonUtils {
     public static List<Asset_three_class> parsingAssetthreeClass(final Context cxt, String data) {
 
         boolean isSuccess = false;
-        List<Asset_three_class> asset_three_classs=new ArrayList<Asset_three_class>();
+        List<Asset_three_class> asset_three_classs = new ArrayList<Asset_three_class>();
         try {
             JSONObject json = new JSONObject(data);
             isSuccess = json.getBoolean("isSuccess");
-            Log.i(TAG,"threejson="+json);
             if (isSuccess) {
                 JSONArray jsonArray = json.getJSONArray("data");
-                Log.i(TAG,"jsonArray="+jsonArray.toString());
-                for (int i=0;i<jsonArray.length();i++){
-                    JSONObject jsonObject=jsonArray.getJSONObject(i);
-                    Asset_three_class asset_three_class=new Asset_three_class();
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    Asset_three_class asset_three_class = new Asset_three_class();
 
 
                     asset_three_class.setAssetNo(jsonObject.getString("assetNo"));
                     asset_three_class.setAttributes(jsonObject.getString("attributes"));
                     asset_three_class.setMetrics(jsonObject.getString("metrics"));
                     asset_three_class.setRfid(jsonObject.getString("rfid"));
-
                     asset_three_classs.add(asset_three_class);
                 }
 
@@ -168,7 +171,9 @@ public class JsonUtils {
     }
 
 
-    /**解析某个任务单的数据**/
+    /**
+     * 解析某个任务单的数据*
+     */
     public static boolean parsingItemTask(final Context cxt, String data) {
 
         boolean isSuccess = false;
@@ -177,17 +182,18 @@ public class JsonUtils {
             isSuccess = json.getBoolean("isSuccess");
 
 
-
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.i(TAG, "资产 JsonExceotion="+e);
+            Log.i(TAG, "资产 JsonExceotion=" + e);
             return isSuccess;
         }
         return isSuccess;
     }
 
 
-    /**解析登出数据**/
+    /**
+     * 解析登出数据*
+     */
     public static boolean parsingLoinout(final Context cxt, String data) {
 
         boolean isSuccess = false;
@@ -196,10 +202,9 @@ public class JsonUtils {
             isSuccess = json.getBoolean("isSuccess");
 
 
-
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.i(TAG, " 登出 JsonExceotion="+e);
+            Log.i(TAG, " 登出 JsonExceotion=" + e);
             return isSuccess;
         }
         return isSuccess;

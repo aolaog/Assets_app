@@ -31,9 +31,15 @@ public class TaskScannAdapter extends RecyclerView.Adapter<TaskScannAdapter.View
     private static final String TAG = "TaskScannAdapter";
     Context mContext;
     ArrayList<Asset_three_class> asset_three_classes = new ArrayList<Asset_three_class>();
+    /**巡检ID**/
+    String task_id;
+    /**巡检设备ID**/
+    String insDeviceID;
 
-    public TaskScannAdapter(Context context) {
+    public TaskScannAdapter(Context context,String task_id,String insDeviceID) {
         mContext = context;
+        this.task_id=task_id;
+        this.insDeviceID=insDeviceID;
     }
 
     @Override
@@ -67,7 +73,9 @@ public class TaskScannAdapter extends RecyclerView.Adapter<TaskScannAdapter.View
             public void onClick(View v) {
                 Intent intent = new Intent();
                 Bundle bundle=new Bundle();
+                bundle.putString("task_id", task_id);
                 bundle.putString("rfid", assetNo);
+                bundle.putString("insDeviceID", insDeviceID);
                 intent.putExtras(bundle);
                 intent.setClass(mContext, TaskResultActivity.class);
                 mContext.startActivity(intent);

@@ -48,7 +48,19 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
             + "position" + " CHAR(256) NOT NULL, "
             + "relatedDevices" + " CHAR(256) NOT NULL,"
             + "rfid" + " CHAR(256) NOT NULL,"
+            + "insDeviceID" + " CHAR(256) NOT NULL,"
             + "ticketID" + " CHAR(256) NOT NULL)";
+
+
+    /**资产二级分类表**/
+
+    public static final String ASSET_TWO_TABLE_NAME="asset_two_class";
+
+    private static final String ASSET_TWO_TABLE_CREATE="CREATE TABLE " + ASSET_TWO_TABLE_NAME
+            + "(" + "_id" + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "object_name" + " CHAR(256)  NOT NULL, "
+            + "object_name_ch" + " CHAR(1024) NOT NULL)";
+
 
 
     /**资产三级分类表**/
@@ -84,6 +96,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(TICKET_TABLE_CREATE);
         db.execSQL(DEVICE_TABLE_CREATE);
+        db.execSQL(ASSET_TWO_TABLE_CREATE);
         db.execSQL(ASSET_THREE_TABLE_CREATE);
     }
 
@@ -91,6 +104,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TICKET_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + DEVICE_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + ASSET_TWO_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ASSET_THREE_TABLE_NAME);
 
         onCreate(db);

@@ -1,6 +1,7 @@
 package com.cdhxqh.polling_mobile.ui.fragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.cdhxqh.polling_mobile.Application;
 import com.cdhxqh.polling_mobile.R;
@@ -42,6 +44,15 @@ public class PollListFragment extends BaseFragment implements HttpRequestHandler
 
     PollDataSource mDataSource = Application.getDataSource();
 
+
+    /**
+     * 暂无数据的布局文件*
+     */
+    LinearLayout notLinearLayout;
+
+
+
+
     public static PollListFragment newInstance(String param1, String param2) {
         PollListFragment fragment = new PollListFragment();
         Bundle args = new Bundle();
@@ -58,9 +69,9 @@ public class PollListFragment extends BaseFragment implements HttpRequestHandler
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_poll_list, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.list_recyclerView);
+        notLinearLayout = (LinearLayout) view.findViewById(R.id.not_linear_layout_id);
         return view;
     }
 
@@ -109,32 +120,18 @@ public class PollListFragment extends BaseFragment implements HttpRequestHandler
     private void setAdapter() {
         pollListAdapter = new PollListAdapter(getActivity());
         mRecyclerView.setAdapter(pollListAdapter);
-        addTestData();
     }
 
-
-    /**
-     * 添加测试数据*
-     */
-    private void addTestData() {
-        ArrayList<Ins_task_ticket> pollTaskModels = new ArrayList<Ins_task_ticket>();
-        for (int i = 0; i < 10; i++) {
-            Ins_task_ticket pollTaskModel = new Ins_task_ticket();
-            pollTaskModel.setId(i + "");
-            pollTaskModel.setTaskTempletName("2层3区UPS设备检查");
-            pollTaskModel.setInspectDate("2015-7-7");
-            pollTaskModel.setStatus(-2);
-            pollTaskModels.add(pollTaskModel);
-        }
-        pollListAdapter.update(pollTaskModels, true);
-    }
 
     @Override
     public void onSuccess(ArrayList<Ins_task_ticket> data) {
 
         Log.i(TAG, "data1=" + data);
 
-        if (data.size() == 0) return;
+        if (data.size() == 0) {
+            notLinearLayout.setVisibility(View.VISIBLE);
+            return;
+        }
 
         mDataSource.isInsertTask(data);
         pollListAdapter.update(getAllIns_task_tickets(), true);
@@ -143,7 +140,6 @@ public class PollListFragment extends BaseFragment implements HttpRequestHandler
 
     @Override
     public void onSuccess(ArrayList<Ins_task_ticket> data, int totalPages, int currentPage) {
-        Log.i(TAG, "data2=" + data);
     }
 
     @Override

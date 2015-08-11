@@ -6,8 +6,8 @@
     <item
         android:id="@+id/action_start"
         android:orderInCategory="100"
-        android:title="提交"
-        android:textSize="30dp"
+        android:title="直接进入"
+        android:textSize="18dp"
         app:showAsAction="always"/>
 
 </menu>
